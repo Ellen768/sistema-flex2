@@ -1,5 +1,5 @@
 # sistema-flex2
-UNIVERSIDADE COMUNITÁRIA
+UNIVERSIDADE COMUNITÁRIA          
 REGIONAL DE CHAPECÓ - UNOCHAPECÓ
 
 ESCOLA POLITÉCNICA
@@ -107,23 +107,6 @@ Trazendo uma visão geral do meu software, basicamente é um sistema empresarial
 
 *2.2.1 Diagramas de casos de uso (Modelo UML de Casos de Uso)*
 
-@startuml
-top to bottom direction
-!define BACKGROUND_COLOR white
-skinparam backgroundColor BACKGROUND_COLOR
-actor US #green;line:green;line.bold;text:purple
+![image](https://github.com/Ellen768/sistema-flex2/assets/148002304/425297c4-2f0d-4c35-965f-8bc2944417b6)
 
-rectangle "SISTEMA FLEX " as Sistema #white;line:black;line.bold;text:black; {
-usecase "Abrir sistema" as At #lightgreen;line:blue;line.bold;text:blue
-usecase "Digitar us. e senha" as Card #lightgreen;line:blue;line.bold;text:blue
-usecase "Digitar a ação" as Sol #lightgreen;line:blue;line.bold;text:blue
-usecase "Ação 300" as Pag #lightgreen;line:blue;line.bold;text:blue
-usecase "Tirar rel." as Ag #lightgreen;line:blue;line.bold;text:blue
-usecase "Enviar Rel." as Env #lightgreen;line:blue;line.bold;text:blue
-US -- At #blue;line:blue;line.bold;text:blue
-At ..> Card #blue;line:blue;text:blue
-Card ..> Sol #blue;line:blue;text:blue
-Sol ..> Pag #blue;line:blue;text:blue
-Pag ..> Ag #blue;line:blue;text:blue
-Ag ..> Env #blue;line:blue;text:blue
-@enduml
+
