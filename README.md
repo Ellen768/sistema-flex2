@@ -140,8 +140,42 @@ Ag ..> Env                      #blue;line:blue;text:blue
 
 2.2.2 Fluxos dos casos de uso (Casos de Uso Expandidos e Diagramas de
 Atividades
-Descreve como o usuario entra e gera um relatório.
-![image](https://github.com/Ellen768/sistema-flex2/assets/148002304/04c87123-cb70-450e-b913-0b2c41ec2616)
+Descreve como o usuario entra, se caso não tiver um usuario criado ou uma ação liberada o master faz isso,  e mosta também como gera um relatório.
+
+![image](https://github.com/Ellen768/sistema-flex2/assets/148002304/72d2efe6-646e-4a8c-a3a9-3c21d326df9a)
+skinparam backgroundcolor transparent
+|usuario|
+start
+:entra no sistema;
+|master|
+:cria um usuario;
+:libera a ação;
+
+|#lightgreen|Sistema|
+:Digita us e a senha]
+:pesquisa a ação;
+:entra na ação e gera um relatório;
+
+|usuario|
+:manda o relatório por e-mail;
+
+
+2.2.2.1 Caso de Uso expandido "Gerar relatórios":
+Caso de Uso: Gerar relatório.
+Atores: usuario e master.
+Propósito: liberar ação e gerar relatório.
+Descrição: a pessoa entra no software do sistema flex e digita o seu usuario e ao entrar pesquisa a ação e gera um relatório.
+
+|                   Ação do Usuario                                      |            Resposta do Sistema         |
+|------------------------------------------------------------------------|----------------------------------------|
+| 1- O usuario entra no sistema e didgita uma senha;                     | - Usuario não existe;                  |
+| 2- O usuario master cria um usuario;                                   | - Cria uma senha nova;                 |
+| 3- O usuario digita uma ação;                                          | - Ação não encontrada;                 |
+| 4- Digita a ação de novo;                                              | - Abre a ação;                         |
+| 5- "Gerar relatório;                                                   | - Gera;                                |
+| 6- O usuario decide se quer no excel;                                  | - Abre o relatório ne excel;           |
+| 7- Manda no e-mail;                                                    |                                        |
+|------------------------------------------------------------------------|----------------------------------------|
 
 
 
