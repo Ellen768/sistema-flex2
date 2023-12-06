@@ -177,6 +177,78 @@ Descrição: a pessoa entra no software do sistema flex e digita o seu usuario e
 | 7- Manda no e-mail;                                                    |                                        |
 |------------------------------------------------------------------------|----------------------------------------|
 
+2.4 Objetos/Classes
+
+2.4.1 Modelo Conceitual/Classes de Análise/Modelo de Domínio (Classes,
+Associações, nomes das associações, Multiplicidades e Atributos)
+@startuml
+
+!theme carbon-gray
+
+' Definindo as classes
+
+class master {
+  - nome: String
+  - criar usuario: String
+  - liberar ações: String
+}
+class Usuario  {
+  - nome: String
+  - senha: String
+- ações: String 
+}
+class Sistema {
+  - usuario: String
+  - senha: String
+} 
+  
+
+class Ações   {
+  - nome: String
+  - numero : String
+  
+}
+
+class Relatório {
+  - Editar: String
+
+}
+
+class enviar {
+  - salvar: String
+
+}
+class e-mail  {
+  - nome: String
+  - e-mail: String
+}
+class excel {
+  - nome: String
+  
+}
+class imprimir {
+  - nome da impressora : String 
+}
+class salvar {
+  - nome: String
+}
+
+' Relações de associação com multiplicidades e direções
+
+ master “1”   -- "1.2" Usuario: Cria e libera a ação >
+Usuario  "1.2" -- "1..3" Sistema : entra  >
+Sistema "1.3" -- "1..4" Ações  : Pesquisa >
+
+' Relações de generalização/especialização
+Ações <|-- Relatório 
+Relatório  "*" <|-- "*" enviar : envia  >
+enviar "*" <|-- "*" e-mail : manda >
+enviar "*" <|-- "*" excel : exportar  >
+enviar "*" <|-- "*" imprimir : imprime >
+enviar "*" <|-- "*" salvar : salva  >
+
+@endum
+
 
 
 
