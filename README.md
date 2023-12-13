@@ -182,73 +182,67 @@ Descrição: a pessoa entra no software do sistema flex e digita o seu usuario e
 2.4.1 Modelo Conceitual/Classes de Análise/Modelo de Domínio (Classes,
 Associações, nomes das associações, Multiplicidades e Atributos)
 @startuml
-
 !theme carbon-gray
+!define BACKGROUND_COLOR white
+skinparam backgroundColor BACKGROUND_COLOR
 
 ' Definindo as classes
 
 class master {
   - nome: String
-  - criar usuario: String
-  - liberar ações: String
+  - criarUsuario(): String
+  - liberarAcoes(): String
 }
-class Usuario  {
+
+class Usuario {
   - nome: String
   - senha: String
-- ações: String 
+  - acoes: String
 }
+
 class Sistema {
   - usuario: String
   - senha: String
-} 
-  
+}
 
-class Ações   {
+class Acoes {
   - nome: String
-  - numero : String
-  
+  - numero: String
 }
 
-class Relatório {
-  - Editar: String
-
+class Relatorio {
+  - editar(): String
 }
 
-class enviar {
-  - salvar: String
-
+class Enviar {
+  - salvar(): String
 }
-class e-mail  {
+
+class Email {
   - nome: String
-  - e-mail: String
+  - enderecoEmail: String
 }
-class excel {
+
+class Excel {
   - nome: String
-  
 }
-class imprimir {
-  - nome da impressora : String 
+
+class Imprimir {
+  - nomeDaImpressora: String
 }
-class salvar {
+
+class Salvar {
   - nome: String
 }
 
 ' Relações de associação com multiplicidades e direções
 
- master “1”   -- "1.2" Usuario: Cria e libera a ação >
-Usuario  "1.2" -- "1..3" Sistema : entra  >
-Sistema "1.3" -- "1..4" Ações  : Pesquisa >
-
-' Relações de generalização/especialização
-Ações <|-- Relatório 
-Relatório  "*" <|-- "*" enviar : envia  >
-enviar "*" <|-- "*" e-mail : manda >
-enviar "*" <|-- "*" excel : exportar  >
-enviar "*" <|-- "*" imprimir : imprime >
-enviar "*" <|-- "*" salvar : salva  >
-
-@endum
-
-
-
-
+master "1" --> "0..*" Usuario : controla
+Usuario "1" --> "1" Sistema : acessa
+Usuario "1" --> "0..*" Acoes : possui
+Acoes "1" --> "0..1" Relatorio : edita
+Enviar "1" --> "1" Email : envia
+Enviar "1" --> "1" Excel : envia
+Imprimir "1" --> "1" Salvar : imprime
+@enduml
+![image](https://github.com/Ellen768/sistema-flex2/assets/148002304/05157288-ca57-4136-aeb1-5603de8e6514)
